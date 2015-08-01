@@ -18,7 +18,7 @@ import com.takipi.tests.speedtest.task.UploadTaskType;
 public class Main
 {
     private static final Logger logger = LoggerFactory.getLogger(Main.class);
-    public static List<Region> regionList = Arrays.asList(
+    public static final List<Region> regionList = Arrays.asList(
     		Region.AP_Singapore, 
     		Region.AP_Sydney, 
     		Region.AP_Tokyo, 
