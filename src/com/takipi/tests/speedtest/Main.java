@@ -1,5 +1,6 @@
 package com.takipi.tests.speedtest;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -17,6 +18,16 @@ import com.takipi.tests.speedtest.task.UploadTaskType;
 public class Main
 {
     private static final Logger logger = LoggerFactory.getLogger(Main.class);
+    public static List<Region> regionList = Arrays.asList(
+    		Region.AP_Singapore, 
+    		Region.AP_Sydney, 
+    		Region.AP_Tokyo, 
+    		Region.EU_Frankfurt, 
+    		Region.EU_Ireland, 
+    		Region.US_Standard, 
+    		Region.US_West,
+            Region.US_West_2, 
+            Region.SA_SaoPaulo);
 	
     public static void main(String[] args) throws Exception
     {
@@ -68,7 +79,7 @@ public class Main
     {
         String regionName = "";
         
-        for (Region region : Region.values())
+        for (Region region : Main.regionList)
             {
                 if (region.toString() != null) {
                     regionName = region.toString();

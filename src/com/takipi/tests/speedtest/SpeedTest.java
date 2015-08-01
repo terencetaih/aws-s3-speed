@@ -94,7 +94,7 @@ public class SpeedTest
 	
 	private void init()
 	{
-		for (Region region : Region.values())
+		for (Region region : Main.regionList)
 		{
 			List<Long> list = new ArrayList<Long>();
 			this.uploadTimings.put(region, list);

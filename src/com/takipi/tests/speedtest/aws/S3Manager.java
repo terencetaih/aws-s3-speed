@@ -1,23 +1,29 @@
 package com.takipi.tests.speedtest.aws;
 
-import java.io.*;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.amazonaws.services.s3.model.S3Object;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.amazonaws.AmazonClientException;
+import com.amazonaws.AmazonServiceException;
 import com.amazonaws.HttpMethod;
+import com.amazonaws.regions.RegionUtils;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.model.GeneratePresignedUrlRequest;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.Region;
-import com.amazonaws.AmazonClientException;
-import com.amazonaws.AmazonServiceException;
-import com.amazonaws.regions.RegionUtils;
+import com.amazonaws.services.s3.model.S3Object;
+import com.takipi.tests.speedtest.Main;
 
 public class S3Manager
 {
@@ -50,7 +56,7 @@ public class S3Manager
     public static void initBuckets(boolean create)
     {
         String regionName = "";
-        for (Region region : Region.values())
+        for (Region region : Main.regionList)
             {
                 logger.debug("Region: '{}'", region);
 
